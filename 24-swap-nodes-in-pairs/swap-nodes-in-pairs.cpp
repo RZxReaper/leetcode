@@ -14,30 +14,9 @@ public:
         if (head==NULL || head->next==NULL){
             return head;
         }
-        ListNode* p1 = head;
-        ListNode* p2 = p1->next;
-        head = p2;
-        while (p1->next!=NULL){
-            if(p2->next==NULL ){
-                p1->next=NULL;
-                p2->next=p1;
-                break;
-            }
-            else{
-                if(p2->next->next==NULL){
-                p1->next=p2->next;
-                p2->next=p1;
-                break;
-                }
-                else{
-                    p1->next=p2->next->next;
-                    ListNode *temp=p2->next;
-                    p2->next=p1;
-                    p1=temp;
-                    p2=p1->next;
-                }
-            }
-        }
-        return head;
+        ListNode* next = head->next;
+        head->next=swapPairs(next->next);
+        next->next=head;
+        return next;
     }
 };
