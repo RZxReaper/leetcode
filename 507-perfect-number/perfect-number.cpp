@@ -1,23 +1,16 @@
 class Solution {
 public:
     bool checkPerfectNumber(int num) {
-        int max=num-1;
-        int curr=1;
-        int count=0;
-        while(max>0){
-            curr++;
-            if(num%curr==0){
-                max-=curr;
-                max-=num/curr;
+        int sum=1;
+        if (num==1){return false;}
+        for(int i=2;i<=sqrt(num);i++){
+            if(num%i==0){
+                sum+=i;
+                sum+=num/i;
             }
+            if (sum>num){return false;}
         }
-        if(curr == num || max!=0){
-            return false;
-        }        
-        int curr2=curr+1;
-        while(num%curr2!=0 && curr2<num){
-            curr2++;
-        }
-        if(curr2==num || curr*curr2==num){return true;}else{return false;}
+        if (sum==num){return true;}else{return false;}
+
     }
 };
