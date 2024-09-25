@@ -1,19 +1,15 @@
 class Solution {
 public:
     vector<string> sortPeople(vector<string>& n, vector<int>& h) {
-        vector<vector<int>> v;
-        if(n.size()==1){return n;}
+        unordered_map<int,string> u;
         vector<string> res;
-        int arr[2];
+        if(n.size()==1){return n;}
         for(int i=0;i<h.size();i++){
-            vector<int> temp;
-            temp.push_back(h[i]);
-            temp.push_back(i);
-            v.push_back(temp);
+            u[h[i]]=n[i];
         }
-        sort(v.begin(),v.end());
-        for(int i=n.size()-1;i>=0;i--){
-            res.push_back(n[v[i][1]]);
+        sort(h.begin(),h.end());
+        for(int i=h.size()-1;i>=0;i--){
+            res.push_back(u[h[i]]);
         }
         return res;
     }
