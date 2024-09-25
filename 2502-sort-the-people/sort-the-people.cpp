@@ -12,7 +12,6 @@ public:
             v.push_back(temp);
         }
         sort(v.begin(),v.end());
-        cout<<v[0][0]<<" "<<v[1][0]<<" "<<v[2][0];
         for(int i=n.size()-1;i>=0;i--){
             res.push_back(n[v[i][1]]);
         }
