@@ -4,15 +4,14 @@ public:
         if(l>r){
             return l;
         }
-        int mid=(l+r)/2;
-        if(v[mid]==key){
+        if(v[(l+r)/2]==key){
             return (l+r)/2;
         }
-        else if(v[mid]>key){
-            return bin_src(v,l,mid-1,key);
+        else if(v[(l+r)/2]>key){
+            return bin_src(v,l,(l+r)/2-1,key);
         }
         else{
-            return bin_src(v,mid+1,r,key);
+            return bin_src(v,(l+r)/2+1,r,key);
         }
 
 
