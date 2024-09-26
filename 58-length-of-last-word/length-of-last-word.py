@@ -5,6 +5,5 @@ class Solution(object):
         :rtype: int
         """
         l=s.split()
-        print(l)
         return len(l[-1])
         
